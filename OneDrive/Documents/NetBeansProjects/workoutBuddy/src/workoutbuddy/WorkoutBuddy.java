@@ -17,6 +17,7 @@ public class WorkoutBuddy {
     {
    	 Scanner scan = new Scanner(System.in);
 
+         System.out.println("testing git");
    	 System.out.println("/\\/\\/\\/\\/\\/\\/\\/\\/\\");
    	 System.out.println(" workout buddy ");
    	 System.out.println("/\\/\\/\\/\\/\\/\\/\\/\\/\\");
