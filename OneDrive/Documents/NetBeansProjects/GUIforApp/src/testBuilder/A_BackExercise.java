@@ -108,7 +108,8 @@ public class A_BackExercise extends javax.swing.JFrame {
         // TODO add your handling code here:
         UpperLowerPrompt frame2 = new UpperLowerPrompt();
         frame2.show();
-        FileManager.file(2);
+        FileManager newfile = new FileManager();
+        newfile.file(2);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
