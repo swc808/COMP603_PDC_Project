@@ -148,9 +148,8 @@ public class UserInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         JFrame2 frame2 = new JFrame2();
+        UpperLowerPrompt frame2 = new UpperLowerPrompt();
         frame2.show();
-        
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -160,10 +159,14 @@ public class UserInfo extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        IntroFrame intro = new IntroFrame();
+        intro.show();
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

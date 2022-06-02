@@ -13,7 +13,7 @@ public class WorkoutBuddy
     public static void main(String[]args)
     {
         
-        testinJFrame testin = new testinJFrame();
+        IntroFrame testin = new IntroFrame();
         testin.setVisible(true);
         
         
