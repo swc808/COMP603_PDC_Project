@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package testBuilder;
-
+import java.util.regex.*;
 /**
  *
  * @author swc20
@@ -26,37 +26,55 @@ public class UserInfo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        nameinput = new javax.swing.JTextField();
+        heightinput = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
+        weightinput = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        height_error = new javax.swing.JLabel();
+        weight_error = new javax.swing.JLabel();
+        name_error = new javax.swing.JLabel();
+
+        jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.setText("enter name here");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        nameinput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                nameinputActionPerformed(evt);
+            }
+        });
+        nameinput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nameinputKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                nameinputKeyReleased(evt);
             }
         });
 
-        jTextField2.setText("enter height here");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        heightinput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                heightinputActionPerformed(evt);
+            }
+        });
+        heightinput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                heightinputKeyReleased(evt);
             }
         });
 
         jLabel1.setText("first name:");
 
-        jLabel2.setText("height:");
+        jLabel2.setText("height(cm):");
 
-        jLabel3.setText("weight:");
+        jLabel3.setText("weight(kg):");
 
         jButton1.setText("next");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -65,10 +83,14 @@ public class UserInfo extends javax.swing.JFrame {
             }
         });
 
-        jTextField4.setText("enter weight here  ");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        weightinput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                weightinputActionPerformed(evt);
+            }
+        });
+        weightinput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                weightinputKeyReleased(evt);
             }
         });
 
@@ -86,6 +108,17 @@ public class UserInfo extends javax.swing.JFrame {
             }
         });
 
+        height_error.setForeground(new java.awt.Color(255, 0, 0));
+
+        weight_error.setForeground(new java.awt.Color(255, 0, 51));
+        weight_error.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                weight_errorKeyReleased(evt);
+            }
+        });
+
+        name_error.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,21 +130,27 @@ public class UserInfo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel1)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING))))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)))
-                .addContainerGap(247, Short.MAX_VALUE))
+                        .addComponent(jButton3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nameinput)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(heightinput, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(weightinput))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(name_error, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(weight_error, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE))
+                            .addComponent(height_error, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,15 +161,22 @@ public class UserInfo extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(name_error))
                 .addGap(29, 29, 29)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(heightinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(height_error, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(weightinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(weight_error))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
@@ -139,15 +185,17 @@ public class UserInfo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void nameinputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameinputActionPerformed
         // TODO add your handling code here:
-        User use = new User();
+         String name = evt.toString();
         
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        
+        
+    }//GEN-LAST:event_nameinputActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void heightinputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heightinputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_heightinputActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         UpperLowerPrompt frame2 = new UpperLowerPrompt();
@@ -155,9 +203,9 @@ public class UserInfo extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void weightinputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weightinputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_weightinputActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -170,6 +218,79 @@ public class UserInfo extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void nameinputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameinputKeyPressed
+        // TODO add your handling code here:
+        //action when key is pressed
+        
+           
+      
+       
+    }//GEN-LAST:event_nameinputKeyPressed
+
+    private void nameinputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameinputKeyReleased
+        // TODO add your handling code here:
+           String PATTERN = "[a-zA-Z]{0,30}$";
+        Pattern patt = Pattern.compile(PATTERN);
+        Matcher match = patt.matcher(nameinput.getText());
+        if(!match.matches())
+        {
+            name_error.setText("invalid name please use letters only");
+        }
+        else if(PATTERN.length()>30)
+        {
+            name_error.setText("pls enter under 30 characters");
+        }
+        else
+        {
+            name_error.setText(null);
+        }
+       
+        
+        
+        
+    }//GEN-LAST:event_nameinputKeyReleased
+
+    private void heightinputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_heightinputKeyReleased
+        // TODO add your handling code here:
+        String PATTERN = "[0-9]{0,3}$";
+        Pattern patt = Pattern.compile(PATTERN);
+        Matcher match = patt.matcher(heightinput.getText());
+        if(!match.matches())
+        {
+            height_error.setText("invalid height please use numbers only");
+        }
+ 
+        else
+        {
+            height_error.setText(null);
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_heightinputKeyReleased
+
+    private void weight_errorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weight_errorKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_weight_errorKeyReleased
+
+    private void weightinputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weightinputKeyReleased
+        // TODO add your handling code here:
+        String PATTERN = "[0-9]{0,3}$";
+        Pattern patt = Pattern.compile(PATTERN);
+        Matcher match = patt.matcher(weightinput.getText());
+        if(!match.matches())
+        {
+            weight_error.setText("invalid weight please use numbers only");
+        }
+ 
+        else
+        {
+            weight_error.setText(null);
+        }
+        
+    }//GEN-LAST:event_weightinputKeyReleased
 
     /**
      * @param args the command line arguments
@@ -207,14 +328,19 @@ public class UserInfo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel height_error;
+    private javax.swing.JTextField heightinput;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel name_error;
+    private javax.swing.JTextField nameinput;
+    private javax.swing.JLabel weight_error;
+    private javax.swing.JTextField weightinput;
     // End of variables declaration//GEN-END:variables
 }

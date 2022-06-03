@@ -8,11 +8,11 @@ package testBuilder;
  *
  * @author swc20
  */
-public class User
+public class User extends UserInfo
 {
     private String name;
-    private double weight;
-    private double height;
+    private int weight;
+    private int height;
     private int id;
 
     public String getName() {
@@ -27,15 +27,15 @@ public class User
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
-    public double getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
