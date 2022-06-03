@@ -47,9 +47,9 @@ public class FileManager {
 				
 				
 		} catch(FileNotFoundException ex) {
-			Logger.getLogger(WorkoutBuddy.class.getName()).log(Level.SEVERE, null, ex);
+			Logger.getLogger(WorkoutBuddyMain.class.getName()).log(Level.SEVERE, null, ex);
 		} catch(IOException ex) {
-			Logger.getLogger(WorkoutBuddy.class.getName()).log(Level.SEVERE, null, ex);
+			Logger.getLogger(WorkoutBuddyMain.class.getName()).log(Level.SEVERE, null, ex);
 		} finally {
 			
 			if(pw != null)
@@ -61,7 +61,7 @@ public class FileManager {
 				try {
 					br.close();
 				} catch(IOException ex) {
-					Logger.getLogger(WorkoutBuddy.class.getName()).log(Level.SEVERE, null, ex);
+					Logger.getLogger(WorkoutBuddyMain.class.getName()).log(Level.SEVERE, null, ex);
 				}
 			}
 			

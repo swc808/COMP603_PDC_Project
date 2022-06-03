@@ -3,12 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package testBuilder;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.regex.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author swc20
  */
 public class UserInfo extends javax.swing.JFrame{
+    private static final String URL = "jdbc:derby://localhost:1527/workoutDB;create=true";
+    Connection conn;
 
     /**
      * Creates new form UserInfo
@@ -261,6 +273,7 @@ public class UserInfo extends javax.swing.JFrame{
            String PATTERN = "[a-zA-Z]{0,30}$";
         Pattern patt = Pattern.compile(PATTERN);
         Matcher match = patt.matcher(nameinput.getText());
+      
         if(!match.matches())
         {
             name_error.setText("invalid name please use letters only");
@@ -276,7 +289,8 @@ public class UserInfo extends javax.swing.JFrame{
             User usename = new User();
             usename.setName(nameinput.getText());
             System.out.println(usename.getName());
-            jButton4.setEnabled(true);
+            jButton4.setEnabled(false);
+            
         }
        
         
@@ -300,7 +314,7 @@ public class UserInfo extends javax.swing.JFrame{
             height_error.setText(null);
             User useheight = new User();
             useheight.setName(heightinput.getText());
-             jButton4.setEnabled(true);
+            jButton4.setEnabled(false); 
            
             
         }
@@ -331,9 +345,11 @@ public class UserInfo extends javax.swing.JFrame{
             User useweight = new User();
             useweight.setName(weightinput.getText());
             jButton4.setEnabled(true);
+           
             
             
         }
+        
         
     }//GEN-LAST:event_weightinputKeyReleased
 
@@ -352,6 +368,18 @@ public class UserInfo extends javax.swing.JFrame{
        weightinput.getText();
         usename.setName(weightinput.getText());
         System.out.println(weightinput.getText());
+        
+        try{
+        Statement statement=conn.createStatement();
+        String sqlInsert = "INSERT INTO PDC.USERS (WEIGHT, HEIGHT, NAME) VALUES"
+                         + Integer.parseInt(weightinput.getText())+ Integer.parseInt(heightinput.getText()) + nameinput.getText();
+        statement.executeUpdate(sqlInsert);
+        
+        }catch(Exception e)
+        {
+            
+        }
+     
         
     }//GEN-LAST:event_jButton4ActionPerformed
 

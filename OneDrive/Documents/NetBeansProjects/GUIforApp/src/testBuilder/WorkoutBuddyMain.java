@@ -8,17 +8,20 @@ package testBuilder;
  *
  * @author swc20
  */
-public class WorkoutBuddy
+public class WorkoutBuddyMain
 {
     public static void main(String[]args)
     {
+        
+        DBManager dbManager = new DBManager();
+        dbManager.establishConnection();
+        
+        System.out.println(dbManager.getConnection());
         User use = new User();
         IntroFrame testin = new IntroFrame();
         testin.setVisible(true);
-        
-    
-        
-        
+       
+ 
         
         
     }
