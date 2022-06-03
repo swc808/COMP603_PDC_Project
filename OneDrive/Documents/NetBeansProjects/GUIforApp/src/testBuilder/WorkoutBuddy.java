@@ -12,9 +12,13 @@ public class WorkoutBuddy
 {
     public static void main(String[]args)
     {
-        
+        User use = new User();
         IntroFrame testin = new IntroFrame();
         testin.setVisible(true);
+        
+    
+        
+        
         
         
     }

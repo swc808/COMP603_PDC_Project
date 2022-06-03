@@ -8,7 +8,7 @@ package testBuilder;
  *
  * @author swc20
  */
-public class User extends UserInfo
+public class User 
 {
     private String name;
     private int weight;
@@ -48,7 +48,7 @@ public class User extends UserInfo
     }
 
 
-
+    
     
     
     
